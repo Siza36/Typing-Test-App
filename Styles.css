@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Major+Mono+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Major+Mono+Display&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 /* font-family: 'Major Mono Display', monospace; */
 /* font-family: 'Bebas Neue', cursive; */
 *{
@@ -38,7 +39,7 @@
     flex-direction: column;
     font-family: 'Major Mono Display', monospace;
     font-size: 30px;
-    padding: 30px;
+    padding: 20px;
     margin: 0 auto;
 }
 
@@ -51,7 +52,7 @@
     align-items: center;
     flex-direction: column;
     font-family: 'Bebas Neue', cursive;
-    font-size: 30px;
+    font-size: 150px;
     padding: 30px;
     margin: 0px auto;
 }
@@ -74,7 +75,7 @@
     border: none;
     color: black;
     font-size: 30px;
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
     border-radius: 10px;
     padding: 10px;
 }
@@ -84,7 +85,7 @@
     border: none;
     font-family: 'Major Mono Display', monospace;
     font-size: 25px;
-    margin-top: 20px;
+    margin-top: 30px;
     color: black;
     border-radius: 10px;
     font-weight: bolder;
@@ -96,6 +97,7 @@
   transition-property: all;
   transition-duration: 500ms;
 }
-.timer{
-    font-size: 150px;
+.randomtext{
+    font-size: 90px;
+    font-family: 'Roboto', sans-serif;
 }
