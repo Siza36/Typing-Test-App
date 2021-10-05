@@ -1,3 +1,20 @@
+const modal = document.querySelector(".modal");
+const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+window.addEventListener("load", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
 //random text
 const randomText = [
     "A small town lies between the big cities."
@@ -53,6 +70,7 @@ const randomText = [
             else if(sec<=25||sec >= 10){
                 timer.style.color="orange";
                 displayRandomm.style.color="orange";
+                displayRandomm.innerText = "wasn't bad"
             }
             ipt.value ="";
             displayRandomm.innerText = `well done!!!! ${timer.innerText}`;
