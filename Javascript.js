@@ -15,6 +15,7 @@ const randomText = [
     ,"It’s fascinating that you know me."];
     const randomSentences =randomText[Math.floor( Math.random()*12)];
     const displayRandomm = document.querySelector("#txt").innerText=randomSentences;
+    const sub = document.querySelector("#btn");
     console.log(randomSentences);
     //timer
     let timer = document.querySelector("#time");
@@ -25,24 +26,40 @@ const randomText = [
     const ipt = document.querySelector("#maininout");
     ipt.addEventListener("focus",function timerhandl(){
         var timerr = setInterval(()=>{
+    
             sec++;
             if(sec >= 60){
             min++;
             sec=0;
+            
             }
             timer.innerText = `${min<10?"0":""}${min}:${sec<10?"0":""}${sec}`;
             ipt.addEventListener("blur",()=>{
                 clearInterval(timerr);
-            })
+                
+        })
+        //submit the text
+        sub.addEventListener("click",function sub(){
+            if(ipt.value === randomSentences){
+            const displayRandomm = document.querySelector("#txt")
+            if(sec <= 10){
+                displayRandomm.style.color="green";
+                timer.style.color="green";
+            }else if(sec>=25){
+                displayRandomm.style.color="red";
+                timer.style.color="red";
+                displayRandomm.innerText = "Practice harder"
+            }
+            else if(sec<=25||sec >= 10){
+                timer.style.color="orange";
+                displayRandomm.style.color="orange";
+            }
+            ipt.value ="";
+            displayRandomm.innerText = `well done!!!! ${timer.innerText}`;
+            }else{
+    
+            }
+            });
+
         },1000)
     })
-//submit the text 
-const sub = document.querySelector("#btn");
-sub.addEventListener("click",function sub(){
-    if(ipt.value === randomSentences){
-        const displayRandomm = document.querySelector("#txt")
-        displayRandomm.style.color="green";
-        ipt.value ="";
-        modaltext.innerText = `well done!!!! ${timer.innerText}`;
-    }
-});
