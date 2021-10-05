@@ -1,20 +1,3 @@
-//timer
-let timer = document.querySelector("#time");
-let sec = 0;
-let min = 0;
-
-//handle the timer
-const ipt = document.querySelector("#maininout");
-ipt.addEventListener("focus",function timerhandl(){
-    setInterval(function(){
-        sec++;
-        if(sec >= 60){
-        min++;
-        sec=0;
-        }
-        timer.innerText = `${min<10?"0":""}${min}:${sec<10?"0":""}${sec}`;
-        },1000)
-})
 //random text
 const randomText = [
     "A small town lies between the big cities."
@@ -31,13 +14,35 @@ const randomText = [
     ,"If you go there, you will find him."
     ,"It’s fascinating that you know me."];
     const randomSentences =randomText[Math.floor( Math.random()*12)];
-    const displayRandom = document.querySelector("#txt").innerText=randomSentens;
-    console.log(randomSentens);
+    const displayRandomm = document.querySelector("#txt").innerText=randomSentences;
+    console.log(randomSentences);
+    //timer
+    let timer = document.querySelector("#time");
+    let sec = 0;
+    let min = 0;
+    
+    //handle the timer
+    const ipt = document.querySelector("#maininout");
+    ipt.addEventListener("focus",function timerhandl(){
+        var timerr = setInterval(()=>{
+            sec++;
+            if(sec >= 60){
+            min++;
+            sec=0;
+            }
+            timer.innerText = `${min<10?"0":""}${min}:${sec<10?"0":""}${sec}`;
+            ipt.addEventListener("blur",()=>{
+                clearInterval(timerr);
+            })
+        },1000)
+    })
 //submit the text 
 const sub = document.querySelector("#btn");
 sub.addEventListener("click",function sub(){
-    if(ipt.value === randomSentens){
-        alert(`well done!!!! ${timer.innerText}`);
+    if(ipt.value === randomSentences){
+        const displayRandomm = document.querySelector("#txt")
+        displayRandomm.style.color="green";
         ipt.value ="";
+        modaltext.innerText = `well done!!!! ${timer.innerText}`;
     }
 });
